@@ -13,6 +13,19 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     let nameList = ["Honey" , "Babjung" , "Groichoi" , "Mino" , "Nigostarr" , "Notak" , "Ham" , "Hyunwoo"]
     let birthList = [990122, 990316 , 990124 , 990207 , 990807 , 990903, 990325, 990107]
 
+    // segueway 를 수행하기 직전에 데이터를 넘겨주는 함수
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // DetailViewController 에게 데이터를 줄것
+        if segue.identifier == "showDetail" {
+            let vc = segue.destination as? DetailViewController
+            if let index = sender as? Int {
+                vc?.name = nameList[index]
+                vc?.birth = birthList[index]
+            }
+           
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -39,7 +52,7 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("--->\(indexPath.row)")
         // 셀이 클릭이 되었을때 실제로 아까 연결되었던 Segueway를 수행하는 메서드 (performSegue)
-        performSegue(withIdentifier: "showDetail", sender: nil)
+        performSegue(withIdentifier: "showDetail", sender: indexPath.row)
     }
 }
 
