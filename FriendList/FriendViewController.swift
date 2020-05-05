@@ -38,6 +38,8 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("--->\(indexPath.row)")
+        // 셀이 클릭이 되었을때 실제로 아까 연결되었던 Segueway를 수행하는 메서드 (performSegue)
+        performSegue(withIdentifier: "showDetail", sender: nil)
     }
 }
 
