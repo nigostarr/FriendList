@@ -49,8 +49,9 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
             if let index = sender as? Int {
                 
                 let friendInfo = friendInfoList[index]
-                vc?.name = friendInfo.name
-                vc?.birth = friendInfo.birth
+                vc?.friendInfo = friendInfo
+//                vc?.name = friendInfo.name
+//                vc?.birth = friendInfo.birth
 //                vc?.name = nameList[index]
 //                vc?.birth = birthList[index]
 
