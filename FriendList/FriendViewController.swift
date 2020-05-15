@@ -85,9 +85,10 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
         
        // let friendInfo = friendInfoList[indexPath.row]
         let friendInfo = viewModel.friendInfo(at: indexPath.row)
-        cell.imgView.image = friendInfo.image
-        cell.nameLabel.text = friendInfo.name
-        cell.birthLabel.text = "\(friendInfo.birth)"
+        cell .update(info: friendInfo)
+//        cell.imgView.image = friendInfo.image
+//        cell.nameLabel.text = friendInfo.name
+//        cell.birthLabel.text = "\(friendInfo.birth)"
         return cell
        }
     
@@ -105,7 +106,14 @@ class ListCell: UITableViewCell {
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var birthLabel: UILabel!
+    
+    func update(info: FriendInfo) {
+        imgView.image = info.image
+        nameLabel.text = info.name
+        birthLabel.text = "\(info.birth)"
+    }
 }
+
 
 struct FriendInfo {
     let name: String
