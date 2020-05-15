@@ -13,6 +13,7 @@
 		8E2B068D24611F26000E25C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E2B068C24611F26000E25C9 /* Assets.xcassets */; };
 		8E2B069024611F26000E25C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E2B068E24611F26000E25C9 /* LaunchScreen.storyboard */; };
 		8E2B06982461208E000E25C9 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2B06972461208E000E25C9 /* FriendViewController.swift */; };
+		8EB685CF246E6E3A005EF220 /* FriendInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB685CE246E6E3A005EF220 /* FriendInfo.swift */; };
 		8EB78A342461C7DE00F8AB2A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB78A332461C7DE00F8AB2A /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		8E2B068F24611F26000E25C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E2B069124611F26000E25C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E2B06972461208E000E25C9 /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
+		8EB685CE246E6E3A005EF220 /* FriendInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendInfo.swift; sourceTree = "<group>"; };
 		8EB78A332461C7DE00F8AB2A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,6 +64,7 @@
 				8EB78A332461C7DE00F8AB2A /* DetailViewController.swift */,
 				8E2B068524611F26000E25C9 /* SceneDelegate.swift */,
 				8E2B06972461208E000E25C9 /* FriendViewController.swift */,
+				8EB685CE246E6E3A005EF220 /* FriendInfo.swift */,
 				8E2B068924611F26000E25C9 /* Main.storyboard */,
 				8E2B068C24611F26000E25C9 /* Assets.xcassets */,
 				8E2B068E24611F26000E25C9 /* LaunchScreen.storyboard */,
@@ -145,6 +148,7 @@
 				8E2B068424611F26000E25C9 /* AppDelegate.swift in Sources */,
 				8E2B068624611F26000E25C9 /* SceneDelegate.swift in Sources */,
 				8EB78A342461C7DE00F8AB2A /* DetailViewController.swift in Sources */,
+				8EB685CF246E6E3A005EF220 /* FriendInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

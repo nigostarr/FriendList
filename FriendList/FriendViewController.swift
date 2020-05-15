@@ -115,20 +115,6 @@ class ListCell: UITableViewCell {
 }
 
 
-struct FriendInfo {
-    let name: String
-    let birth: Int
-    
-    var image: UIImage? {
-        return UIImage(named: "\(name).jpg")
-    }
-    
-    init(name: String, birth: Int){
-        self.name = name
-        self.birth = birth
-    }
-}
-
 class FriendViewModel {
     let friendInfoList: [FriendInfo] = [
            FriendInfo(name: "Honey", birth: 990122),
@@ -140,10 +126,18 @@ class FriendViewModel {
            FriendInfo(name: "Ham", birth: 990325),
            FriendInfo(name: "Hyunwoo", birth: 990107)
     ]
+    
+    var sortedList: [FriendInfo] {
+        let sortedList = friendInfoList.sorted { prev, next in
+            return prev.birth < next.birth
+        }
+        return sortedList
+    }
+    
     var numOfFriendInfoList: Int {
         return friendInfoList.count
     }
     func friendInfo(at index: Int) -> FriendInfo {
-        return friendInfoList[index]
+        return sortedList[index]
     }
 }
