@@ -26,17 +26,18 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     // > FriendViewModel 을 만들고, 뷰레이어에서 필요한 메서드 만들기
     // > 모델 가지고 있기 ,, BountyInfo 들
 
-    let friendInfoList: [FriendInfo] = [
-        FriendInfo(name: "Honey", birth: 990122),
-        FriendInfo(name: "Babjung", birth: 990316),
-        FriendInfo(name: "Groichoi", birth: 990124),
-        FriendInfo(name: "Mino", birth: 990207),
-        FriendInfo(name: "Nigostarr", birth: 990807),
-        FriendInfo(name: "Notak", birth: 990903),
-        FriendInfo(name: "Ham", birth: 990325),
-        FriendInfo(name: "Hyunwoo", birth: 990107)
-    ]
-    
+//    let friendInfoList: [FriendInfo] = [
+//        FriendInfo(name: "Honey", birth: 990122),
+//        FriendInfo(name: "Babjung", birth: 990316),
+//        FriendInfo(name: "Groichoi", birth: 990124),
+//        FriendInfo(name: "Mino", birth: 990207),
+//        FriendInfo(name: "Nigostarr", birth: 990807),
+//        FriendInfo(name: "Notak", birth: 990903),
+//        FriendInfo(name: "Ham", birth: 990325),
+//        FriendInfo(name: "Hyunwoo", birth: 990107)
+//    ]
+        
+    let viewModel = FriendViewModel()
     
 //    let nameList = ["Honey" , "Babjung" , "Groichoi" , "Mino" , "Nigostarr" , "Notak" , "Ham" , "Hyunwoo"]
 //    let birthList = [990122, 990316 , 990124 , 990207 , 990807 , 990903, 990325, 990107]
@@ -48,8 +49,9 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
             let vc = segue.destination as? DetailViewController
             if let index = sender as? Int {
                 
-                let friendInfo = friendInfoList[index]
-                vc?.friendInfo = friendInfo
+//                let friendInfo = friendInfoList[index]
+                let friendInfo = viewModel.friendInfo(at: index)
+                vc?.viewModel.update(model: friendInfo)
 //                vc?.name = friendInfo.name
 //                vc?.birth = friendInfo.birth
 //                vc?.name = nameList[index]
@@ -68,7 +70,8 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return FriendList.count
-        return friendInfoList.count
+        // return friendInfoList.count
+        return viewModel.numOfFriendInfoList
        }
        
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -80,7 +83,8 @@ class FriendViewController: UIViewController, UITableViewDataSource, UITableView
 //        cell.nameLabel.text = nameList[indexPath.row]
 //        cell.birthLabel.text = "\(birthList[indexPath.row])"
         
-        let friendInfo = friendInfoList[indexPath.row]
+       // let friendInfo = friendInfoList[indexPath.row]
+        let friendInfo = viewModel.friendInfo(at: indexPath.row)
         cell.imgView.image = friendInfo.image
         cell.nameLabel.text = friendInfo.name
         cell.birthLabel.text = "\(friendInfo.birth)"
@@ -114,5 +118,24 @@ struct FriendInfo {
     init(name: String, birth: Int){
         self.name = name
         self.birth = birth
+    }
+}
+
+class FriendViewModel {
+    let friendInfoList: [FriendInfo] = [
+           FriendInfo(name: "Honey", birth: 990122),
+           FriendInfo(name: "Babjung", birth: 990316),
+           FriendInfo(name: "Groichoi", birth: 990124),
+           FriendInfo(name: "Mino", birth: 990207),
+           FriendInfo(name: "Nigostarr", birth: 990807),
+           FriendInfo(name: "Notak", birth: 990903),
+           FriendInfo(name: "Ham", birth: 990325),
+           FriendInfo(name: "Hyunwoo", birth: 990107)
+    ]
+    var numOfFriendInfoList: Int {
+        return friendInfoList.count
+    }
+    func friendInfo(at index: Int) -> FriendInfo {
+        return friendInfoList[index]
     }
 }

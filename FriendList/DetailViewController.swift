@@ -36,7 +36,9 @@ class DetailViewController: UIViewController {
 //    var name: String?
 //    var birth: Int?
     
-    var friendInfo : FriendInfo?
+//    var friendInfo : FriendInfo?
+    
+    let viewModel = DetailViewModel()
     
     // viewDidLoad 는 viewController 가 실제로 메모리에 올라오는 시점에 호출이됨.(viewController 가 뜨기 직전에 메모리가 올라왔을때 위의 property 데이터를 가지고 updateUI에 이를 업데이트 한다)
     override func viewDidLoad() {
@@ -46,7 +48,7 @@ class DetailViewController: UIViewController {
     // Data Setting
     func updateUI() {
         
-        if let friendInfo = self.friendInfo {
+        if let friendInfo = viewModel.friendInfo {
             imgView.image = friendInfo.image
             nameLabel.text = friendInfo.name
             birthLabel.text = "\(friendInfo.birth)"
@@ -66,5 +68,10 @@ class DetailViewController: UIViewController {
     
 }
 
-
-
+class DetailViewModel {
+     var friendInfo : FriendInfo?
+    
+    func update(model: FriendInfo?) {
+        friendInfo = model
+    }
+}
