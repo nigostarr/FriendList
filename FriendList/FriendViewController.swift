@@ -13,7 +13,7 @@ class FriendViewController: UIViewController, UICollectionViewDataSource, UIColl
    
     let viewModel = FriendViewModel()
     
-    // segueway 를 수행하기 직전에 데이터를 넘겨주는 함수
+    // segueway 를 수행하기 직전에 데이터를 넘겨주는 함수.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // DetailViewController 에게 데이터를 줄것
         if segue.identifier == "showDetail" {
@@ -35,6 +35,7 @@ class FriendViewController: UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numOfFriendInfoList
     }
+    
     // 셀은 어떻게 표현할지?
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as? GridCell else {
