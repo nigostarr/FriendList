@@ -20,14 +20,14 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OeZ-0P-zJB">
-                                    <size key="itemSize" width="201" height="323"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OeZ-0P-zJB">
+                                    <size key="itemSize" width="200" height="300"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0jh-yd-7NF">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GridCell" id="0jh-yd-7NF" customClass="GridCell" customModule="FriendList" customModuleProvider="target">
                                         <rect key="frame" x="87.666666666666671" y="0.0" width="200" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="EDW-rn-8My">
@@ -64,6 +64,11 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="200" height="300"/>
+                                        <connections>
+                                            <outlet property="birthLabel" destination="a1n-1W-5Ca" id="ady-Xe-XPc"/>
+                                            <outlet property="imgView" destination="1B0-GS-Wiy" id="pTE-7Q-USC"/>
+                                            <outlet property="nameLabel" destination="GvZ-zH-UUZ" id="dhX-7n-0jk"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
