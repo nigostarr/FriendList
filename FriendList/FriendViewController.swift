@@ -51,6 +51,16 @@ class FriendViewController: UIViewController, UICollectionViewDataSource, UIColl
         print("--->\(indexPath.item)")
         performSegue(withIdentifier: "showDetail", sender: indexPath.item)
     }
+    // UICollectionViewDelegateFlowLayout
+    // cell size를 계산할거다 (목표: 다양 디바이스에서 일관적인 대자인을 보여주기위해)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemSpacing: CGFloat = 10
+        let textAreaHeight: CGFloat = 65
+        
+        let width: CGFloat = (collectionView.bounds.width - itemSpacing)/2
+        let height: CGFloat = width * 10/7 + textAreaHeight
+        return CGSize(width: width, height: height)
+    }
 }
     class FriendViewModel {
     let friendInfoList: [FriendInfo] = [
@@ -63,14 +73,13 @@ class FriendViewController: UIViewController, UICollectionViewDataSource, UIColl
            FriendInfo(name: "Ham", birth: 990325),
            FriendInfo(name: "Hyunwoo", birth: 990107)
     ]
-    
+        
     var sortedList: [FriendInfo] {
         let sortedList = friendInfoList.sorted { prev, next in
             return prev.birth < next.birth
         }
         return sortedList
     }
-    
     var numOfFriendInfoList: Int {
         return friendInfoList.count
     }
